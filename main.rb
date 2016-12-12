@@ -10,7 +10,7 @@ end
 class Player
 
   SPRITE = media_path('player-large.png')
-  FRAME_DELAY = 30
+  FRAME_DELAY = 90
 
   def load_animation(window)
     Gosu::Image.load_tiles(window, SPRITE, 32, 32, false)
@@ -39,7 +39,7 @@ class Player
   end
 
   def can_move_down?
-    return true if @y_position < 588
+    return true if @y_position < 586
   end
 
   def move_right
@@ -165,16 +165,6 @@ class Player
     current_frame.draw(@x_position, @y_position, 1)
     @info = Gosu::Image.from_text(@window, info, Gosu.default_font_name, 30)
     @info.draw(0, 0, 1)
-
-    if @direction == :right
-
-    elsif @direction == :left 
-
-    elsif @direction == :up
-
-    elsif @direction == :down
-
-    end
   end
 
   private
