@@ -4,6 +4,8 @@ class Player
 
   include Helpers
 
+  attr_accessor :x_position, :y_position, :score, :player
+
   SPRITE = Helpers.media_path('player-large.png')
   FRAME_DELAY = 90
 
@@ -16,6 +18,7 @@ class Player
     @player = load_animation(@window)
     @x_position = @window.height / 2
     @y_position = @window.height / 2
+    @score = 0
     @direction = :down
     @previous_frame = 0
     @current_frame = 1
@@ -160,9 +163,15 @@ class Player
     current_frame.draw(@x_position, @y_position, 1)
     @info = Gosu::Image.from_text(@window, info, Gosu.default_font_name, 30)
     @info.draw(0, 0, 1)
+    @score_info = Gosu::Image.from_text(@window, score_info, Gosu.default_font_name, 30)
+    @score_info.draw(450, 0, 1)
   end
 
   private
+
+  def score_info
+    "high score: #{@score}"
+  end
 
   def info
     "x:#{@x_position} y:#{@y_position}"
