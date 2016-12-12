@@ -24,7 +24,7 @@ class GameWindow < Gosu::Window
   	@player.update
     @coins.each do |coin|
       coin.update
-      if @player.x_position.between?(coin.x_position - 10, coin.x_position + 28) && @player.y_position.between?(coin.y_position - 10, coin.y_position + 18)
+      if (@player.x_position + 16).between?(coin.x_position - 10, coin.x_position + 28) && (@player.y_position + 16).between?(coin.y_position - 10, coin.y_position + 18)
         @player.score += 1
         @coins.delete(coin)
       end
