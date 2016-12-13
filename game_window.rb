@@ -9,7 +9,7 @@ class GameWindow < Gosu::Window
     @background_image = Gosu::Image.new('media/scifi_dungeon.png', :tileable => true)
     @player = Player.new(self)
     @coins = []
-    100.times do
+    50.times do
       coin = Coin.new(self)
       @coins << coin
     end
@@ -24,7 +24,7 @@ class GameWindow < Gosu::Window
   	@player.update
     @coins.each do |coin|
       coin.update
-      if (@player.x_position + 16).between?(coin.x_position - 10, coin.x_position + 28) && (@player.y_position + 16).between?(coin.y_position - 10, coin.y_position + 18)
+      if (@player.x_position + 16).between?(coin.x_position - 10, coin.x_position + 28) && (@player.y_position + 16).between?(coin.y_position - 10, coin.y_position + 28)
         @player.score += 1
         @coins.delete(coin)
       end
