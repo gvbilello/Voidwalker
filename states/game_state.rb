@@ -7,6 +7,7 @@ class GameState
 	end
 
 	def enter
+
 	end
 
 	def leave
