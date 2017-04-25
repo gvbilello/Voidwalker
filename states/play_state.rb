@@ -1,6 +1,7 @@
 class PlayState < GameState
 
 	def initialize
+		# @map is new location
 		@map = Map.new
 		@player = Player.new(@map)
 		@camera = Camera.new(@player)
